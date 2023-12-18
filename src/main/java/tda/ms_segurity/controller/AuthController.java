@@ -90,5 +90,22 @@ private Logger logger = LoggerFactory.getLogger(AuthController.class);
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(prop.MSG_ERROR_PROCESAR);
 		}
 	}
+	@DeleteMapping("/delete")
+	public ResponseEntity<?> delete(int id) {
+		try {
+			UsuarioModel obj = authService.findById(id);
+			
+			if(obj != null) {
+				authService.delete(id);
+				
+				return ResponseEntity.status(HttpStatus.OK).body(prop.MSG_EXITO_ELIMINAR);
+			}else {
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).body(prop.MSG_NO_ENCONTRADO);
+			}
+		} catch (Exception ex) {
+			logger.error(ex.getMessage());
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(prop.MSG_ERROR_PROCESAR);
+		}
+	}
 }
 
