@@ -1,4 +1,4 @@
-package tda.ms_segurity;
+package tda.MsSegurity;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
