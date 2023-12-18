@@ -31,5 +31,16 @@ public class AuthService implements IAuthService {
     @Override
     public List<UsuarioModel> findAll() {
         return (List<UsuarioModel>) authRepository.findAll();
-    }   
-}
+    }
+    @Override
+    public UsuarioModel findById(int id) {
+        Optional<UsuarioModel> model = authRepository.findById(id);
+        if(model.isPresent()) {
+        	return model.get();
+        }else {
+        	return null;
+        }
+        
+    }
+    
+}   
