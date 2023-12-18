@@ -66,5 +66,18 @@ private Logger logger = LoggerFactory.getLogger(AuthController.class);
 		}
 	}
 
+	@PostMapping("/create")
+	public ResponseEntity<?> create(@RequestBody AuthDTO model) {
+		try {
+			ModelMapper m = new ModelMapper();
+			UsuarioModel obj = m.map(model, UsuarioModel.class);
+			authService.add(obj);
+			return ResponseEntity.status(HttpStatus.OK).body(prop.MSG_EXITO_GUARDAR);
+		} catch (Exception ex) {
+			logger.error(ex.getMessage());
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(prop.MSG_ERROR_PROCESAR);
+		}
+	}
+
 }
 
