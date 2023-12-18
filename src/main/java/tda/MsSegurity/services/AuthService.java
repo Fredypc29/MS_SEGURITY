@@ -21,5 +21,15 @@ public class AuthService implements IAuthService {
     @Override
     public UsuarioModel update(UsuarioModel model) {
         return authRepository.save(model);
-    }    
+    } 
+    @Override
+    public boolean delete(int id) {        
+        authRepository.deleteById(id);
+        return true;
+    }
+
+    @Override
+    public List<UsuarioModel> findAll() {
+        return (List<UsuarioModel>) authRepository.findAll();
+    }   
 }
