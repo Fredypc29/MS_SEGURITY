@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import TDA.MsSecurity.config.UtilsProperties;
 import TDA.MsSecurity.dto.AuthDTO;
 import TDA.MsSecurity.model.UsuarioModel;
@@ -21,7 +20,8 @@ import TDA.MsSecurity.services.IAuthService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
+@RestController
+@RequestMapping("/api/auth")
 
 public class AuthController {
 private Logger logger = LoggerFactory.getLogger(AuthController.class);
