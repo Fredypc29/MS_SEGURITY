@@ -10,4 +10,16 @@ import TDA.MsSecurity.repository.IAuthRepository;
 
 public class AuthService implements IAuthService {
 
+    @Autowired
+    IAuthRepository authRepository;
+
+    @Override
+    public UsuarioModel add(UsuarioModel model) {
+        return authRepository.save(model);
+    }
+
+    @Override
+    public UsuarioModel update(UsuarioModel model) {
+        return authRepository.save(model);
+    }    
 }
