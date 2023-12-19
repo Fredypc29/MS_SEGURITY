@@ -1,6 +1,6 @@
 package tda.MsSegurity.services;
 import java.util.List;
-
+import java.util.jar;
 import tda.MsSegurity.model.UsuarioModel;
 
 public interface IAuthService {
